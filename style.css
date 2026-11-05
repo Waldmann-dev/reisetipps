@@ -52,7 +52,7 @@ body {
    both languages show at once on 05.11.2026.) */
 .en { display: none; }
 body.lang-en .de { display: none; }
-body.lang-en .en { display: revert; }
+body.lang-en .en { display: inline; }
 
 /* Hero */
 .hero { padding: 34px 0 8px; }
