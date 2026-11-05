@@ -1,0 +1,94 @@
+:root {
+  --bg: #faf9f6;
+  --card: #ffffff;
+  --ink: #1d2733;
+  --muted: #6b7684;
+  --accent: #0e7c7b;
+  --accent-soft: #e3f2f1;
+  --border: #e6e2d8;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+}
+.wrap { max-width: 740px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.site-header {
+  background: linear-gradient(135deg, #0e7c7b, #14666b 60%, #1d4e5f);
+  color: #fff;
+  padding: 26px 0 30px;
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.brand h1 { margin: 0; font-size: 1.9rem; letter-spacing: -0.5px; }
+.brand p { margin: 4px 0 0; opacity: .85; font-size: .95rem; }
+.brand a { color: #fff; text-decoration: none; }
+.lang-toggle { display: flex; gap: 6px; background: rgba(255,255,255,.15); border-radius: 999px; padding: 4px; }
+.lang-toggle button {
+  border: 0; border-radius: 999px; padding: 7px 16px; font-size: .85rem; font-weight: 700;
+  background: transparent; color: #fff; cursor: pointer;
+}
+.lang-toggle button.active { background: #fff; color: var(--accent); }
+
+/* Language visibility */
+.de { display: inline; }
+.en { display: none; }
+body.lang-en .de { display: none; }
+body.lang-en .en { display: inline; }
+li .de, li .en, p .de, p .en, h1 .de, h1 .en, h2 .de, h2 .en, h3 .de, h3 .en, span.de, span.en { display: inline; }
+body.lang-en li .de, body.lang-en p .de, body.lang-en h1 .de, body.lang-en h2 .de, body.lang-en h3 .de,
+body.lang-en li .en, body.lang-en p .en, body.lang-en h1 .en, body.lang-en h2 .en, body.lang-en h3 .en { display: inline; }
+div.de, div.en, section.de, section.en { display: block; }
+body.lang-en div.de, body.lang-en section.de { display: none; }
+body.lang-en div.en, body.lang-en section.en { display: block; }
+div.en, section.en { display: none; }
+
+/* Hero */
+.hero { padding: 34px 0 8px; }
+.hero h2 { font-size: 1.5rem; margin: 0 0 8px; }
+.hero p { color: var(--muted); margin: 0; max-width: 60ch; }
+
+/* Post cards */
+.posts { display: grid; gap: 18px; padding: 24px 0 10px; }
+.post-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 22px; text-decoration: none; color: inherit; display: block;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.post-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,40,50,.10); }
+.post-card .meta { color: var(--muted); font-size: .82rem; margin-bottom: 6px; }
+.post-card h3 { margin: 0 0 8px; font-size: 1.25rem; }
+.post-card p { margin: 0 0 12px; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: .75rem; font-weight: 600; background: var(--accent-soft); color: var(--accent);
+  border-radius: 999px; padding: 3px 10px;
+}
+
+/* Article */
+.article { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin: 28px 0; }
+.article .meta { color: var(--muted); font-size: .85rem; margin-bottom: 10px; }
+.article h1 { margin: 0 0 10px; font-size: 1.7rem; letter-spacing: -0.5px; }
+.article .lede { color: var(--muted); font-size: 1.05rem; border-left: 4px solid var(--accent); padding-left: 14px; margin: 0 0 26px; }
+.rule-section { margin: 30px 0; }
+.rule-section > h2 { font-size: 1.25rem; margin: 0 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--accent-soft); }
+.rule { display: flex; gap: 14px; margin: 0 0 16px; }
+.rule-num {
+  flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff;
+  font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: .95rem; margin-top: 2px;
+}
+.rule-body strong { display: block; margin-bottom: 2px; }
+.rule-body p { margin: 0; color: #37424f; }
+.back-link { display: inline-block; margin: 6px 0 0; color: var(--accent); text-decoration: none; font-weight: 600; }
+.back-link:hover { text-decoration: underline; }
+
+.site-footer { padding: 30px 0 46px; color: var(--muted); font-size: .85rem; text-align: center; }
+@media (max-width: 520px) {
+  .article { padding: 20px; }
+  .brand h1 { font-size: 1.5rem; }
+}
