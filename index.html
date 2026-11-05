@@ -16,9 +16,12 @@
         <span class="en">Field-tested travel rules – every post in German &amp; English.</span>
       </p>
     </div>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button id="btn-de" class="active" onclick="setLang('de')">DE</button>
-      <button id="btn-en" onclick="setLang('en')">EN</button>
+    <div class="lang-switch" role="group" aria-label="Language / Sprache">
+      <span class="lang-label" id="lbl-de">DE</span>
+      <button type="button" id="lang-btn" class="switch" role="switch" aria-checked="false" aria-label="Switch to English">
+        <span class="knob"></span>
+      </button>
+      <span class="lang-label" id="lbl-en">EN</span>
     </div>
   </div>
 </header>
@@ -263,16 +266,23 @@
 
 <script>
 function setLang(l) {
-  document.body.classList.toggle('lang-en', l === 'en');
+  var en = (l === 'en');
+  document.body.classList.toggle('lang-en', en);
   document.documentElement.lang = l;
-  document.getElementById('btn-de').classList.toggle('active', l === 'de');
-  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  var btn = document.getElementById('lang-btn');
+  btn.setAttribute('aria-checked', en ? 'true' : 'false');
+  btn.setAttribute('aria-label', en ? 'Auf Deutsch umstellen' : 'Switch to English');
+  document.getElementById('lbl-de').classList.toggle('active', !en);
+  document.getElementById('lbl-en').classList.toggle('active', en);
   try { localStorage.setItem('reisetipps-lang', l); } catch (e) {}
 }
 (function init() {
   var l = 'de';
   try { l = localStorage.getItem('reisetipps-lang') || 'de'; } catch (e) {}
   setLang(l === 'en' ? 'en' : 'de');
+  document.getElementById('lang-btn').addEventListener('click', function () {
+    setLang(document.body.classList.contains('lang-en') ? 'de' : 'en');
+  });
 })();
 </script>
 </body>
