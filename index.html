@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reisetipps – Travel Tips</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">✈️ Reisetipps</a></h1>
+      <p>
+        <span class="de">Getestete Reise-Regeln – jedes Mal auf Deutsch &amp; Englisch.</span>
+        <span class="en">Field-tested travel rules – every post in German &amp; English.</span>
+      </p>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="btn-de" class="active" onclick="setLang('de')">DE</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h2>
+      <span class="de">Alle Beiträge</span>
+      <span class="en">All posts</span>
+    </h2>
+    <p>
+      <span class="de">Kurze, konkrete Regeln aus echten Reisen – ohne Blabla. Jeder Beitrag erscheint auf Deutsch und Englisch.</span>
+      <span class="en">Short, concrete rules from real trips – no fluff. Every post is published in German and English.</span>
+    </p>
+  </section>
+
+  <section class="posts">
+    <a class="post-card" href="reise-regeln.html">
+      <div class="meta">05.11.2026</div>
+      <h3>
+        <span class="de">20 Regeln für entspanntes Reisen</span>
+        <span class="en">20 rules for relaxed travel</span>
+      </h3>
+      <p>
+        <span class="de">Vom Restaurant-Trick über das 50-€-Reisekonto bis zur Packliste: Die wichtigsten Lektionen aus China, Hongkong &amp; Macau – plus sinnvolle Ergänzungen.</span>
+        <span class="en">From the restaurant trick to the €50 travel account to the packing list: the key lessons from China, Hong Kong &amp; Macau – plus useful additions.</span>
+      </p>
+      <div class="tags">
+        <span class="tag">🍜 Essen</span>
+        <span class="tag">💳 Geld</span>
+        <span class="tag">🧳 Packen</span>
+        <span class="tag">🛡️ Sicherheit</span>
+        <span class="tag">📱 Apps</span>
+      </div>
+    </a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="de">© 2026 Reisetipps · Aus der Praxis, für die Praxis.</span>
+    <span class="en">© 2026 Reisetipps · From practice, for practice.</span>
+  </div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.body.classList.toggle('lang-en', l === 'en');
+  document.documentElement.lang = l;
+  document.getElementById('btn-de').classList.toggle('active', l === 'de');
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  try { localStorage.setItem('reisetipps-lang', l); } catch (e) {}
+}
+(function init() {
+  var l = 'de';
+  try { l = localStorage.getItem('reisetipps-lang') || 'de'; } catch (e) {}
+  setLang(l === 'en' ? 'en' : 'de');
+})();
+</script>
+</body>
+</html>
