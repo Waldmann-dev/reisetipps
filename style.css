@@ -47,18 +47,12 @@ body {
 }
 .switch[aria-checked="true"] .knob { left: 25px; }
 
-/* Language visibility */
-.de { display: inline; }
+/* Language visibility – exactly one language visible at a time.
+   (Never add other display rules for .de/.en: a specificity war made
+   both languages show at once on 05.11.2026.) */
 .en { display: none; }
 body.lang-en .de { display: none; }
-body.lang-en .en { display: inline; }
-li .de, li .en, p .de, p .en, h1 .de, h1 .en, h2 .de, h2 .en, h3 .de, h3 .en, span.de, span.en { display: inline; }
-body.lang-en li .de, body.lang-en p .de, body.lang-en h1 .de, body.lang-en h2 .de, body.lang-en h3 .de,
-body.lang-en li .en, body.lang-en p .en, body.lang-en h1 .en, body.lang-en h2 .en, body.lang-en h3 .en { display: inline; }
-div.de, div.en, section.de, section.en { display: block; }
-body.lang-en div.de, body.lang-en section.de { display: none; }
-body.lang-en div.en, body.lang-en section.en { display: block; }
-div.en, section.en { display: none; }
+body.lang-en .en { display: revert; }
 
 /* Hero */
 .hero { padding: 34px 0 8px; }
@@ -143,6 +137,10 @@ div.en, section.en { display: none; }
 .tips { margin: 0; padding: 6px 22px 20px 42px; }
 .tips li { margin: 0 0 10px; }
 .tips li::marker { color: var(--accent); }
+/* Nested sub-bullets */
+.accordion .tips ul { margin: 8px 0 6px; padding: 0 0 0 24px; }
+.accordion .tips ul li { margin: 0 0 5px; }
+.accordion .tips ul li::marker { color: var(--accent); }
 
 .site-footer { padding: 30px 0 46px; color: var(--muted); font-size: .85rem; text-align: center; }
 @media (max-width: 520px) {
