@@ -87,6 +87,39 @@ div.en, section.en { display: none; }
 .back-link { display: inline-block; margin: 6px 0 0; color: var(--accent); text-decoration: none; font-weight: 600; }
 .back-link:hover { text-decoration: underline; }
 
+/* Accordion */
+.accordion {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 0 0 14px;
+  overflow: hidden;
+}
+.accordion summary {
+  cursor: pointer;
+  padding: 16px 20px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: var(--accent);
+  font-weight: 400;
+  flex: 0 0 auto;
+  margin-left: 12px;
+}
+.accordion[open] summary::after { content: "–"; }
+.accordion summary:hover { background: var(--accent-soft); }
+.accordion ul { margin: 0; padding: 4px 22px 20px 40px; }
+.accordion li { margin: 0 0 10px; }
+.accordion li::marker { color: var(--accent); }
+
 .site-footer { padding: 30px 0 46px; color: var(--muted); font-size: .85rem; text-align: center; }
 @media (max-width: 520px) {
   .article { padding: 20px; }
